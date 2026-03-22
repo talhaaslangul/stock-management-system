@@ -1,1 +1,57 @@
-# stock-management-system
+STOK YÖNETİM SİSTEMİ - KURULUM VE KULLANIM REHBERİ
+
+1. PROJE TANIMI VE EKİP Bu proje, perakende ve üretim sektörlerinde envanter takibini otomatize etmek amacıyla geliştirilmiş bir "Stok Yönetim Sistemi"dir. Proje Ekibi:
+
+Muhammed Mert Bakkal 
+
+Talha Aslangül 
+
+Kadir Başar Soğukkanlı 
+
+Beyza Soykasap 
+
+2. SİSTEM GEREKSİNİMLERİ Uygulamanın çalışması için aşağıdaki yazılımların kurulu olması gerekmektedir:
+
+Python 3.10 veya üzeri bir sürüm.
+
+Oracle Database (Express Edition - XE önerilir).
+
+İnternet bağlantısı (Kütüphane kurulumu için).
+
+3. ADIM ADIM KURULUM (STEP-BY-STEP SETUP)
+
+ADIM 1: Python Kütüphanelerinin Yüklenmesi Terminali veya CMD'yi açarak proje klasörüne gidin. Aşağıdaki komutu çalıştırarak gerekli paketleri yükleyin:
+
+pip install streamlit pandas plotly oracledb
+
+ADIM 2: Veritabanı Şemasının Oluşturulması
+
+Oracle SQL Developer veya benzeri bir araçla veritabanına bağlanın.
+
+
+tablolar.sql dosyasındaki tüm komutları (CREATE TABLE, CONSTRAINT ve INSERT) kopyalayıp çalıştırın.
+
+
+ADIM 3: Veritabanı Bağlantı Ayarları (Farklı Bilgisayar/Network) Eğer veritabanı farklı bir bilgisayarda kuruluysa database.py dosyasını düzenlemeniz gerekir:
+
+dsn="localhost:1521/XE" kısmındaki localhost yerine, veritabanının yüklü olduğu bilgisayarın yerel IP adresini (Örn: 192.168.1.50) yazın.
+
+Veritabanı bilgisayarında Oracle portunun (varsayılan 1521) dış bağlantılara açık olduğundan emin olun.
+
+ADIM 4: Uygulamanın Çalıştırılması Terminalde proje dizinindeyken şu komutu verin:
+
+streamlit run main.py
+
+4. ÖNEMLİ FONKSİYONLAR VE KULLANIM
+
+
+Ürün Yönetimi: Ürün ekleme, silme ve fiyat güncelleme işlemleri "Ürünler" menüsünden yapılır.
+
+
+Stok Takibi: Giren (IN) ve Çıkan (OUT) hareketleri "Stok İşlemleri" altından kaydedilir.
+
+Analiz Paneli: "Raporlar" sekmesi üzerinden kritik stok seviyeleri ve depo yoğunlukları interaktif grafiklerle takip edilebilir.
+
+5. HATA GİDERME (TROUBLESHOOTING)
+
+Bağlantı Hatası: "Veritabanı Bağlantı Yok" uyarısı alıyorsanız database.py içindeki kullanıcı adı, şifre ve IP bilgilerini kontrol edin.
